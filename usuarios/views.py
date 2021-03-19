@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from visitantes.models import Visitante
 
 
 def index(request):
-    context = {
-        "nome_pagina": "Início da dashboard",
+    
+    context = {    
+        "todos_visitantes" : Visitante.objects.all(),
     }
 
-    return render(request, "index.html", context)
+    return render(request, "index.html",context )
 
